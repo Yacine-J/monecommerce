@@ -8,6 +8,7 @@ function executeRequete($req) {
         if (!$resultat) {
             die("Erreur sur la requête sql.<br>Message : " . $mysqli->error . "<br>Code : " . $req);
         }
+        return $resultat;
     } catch (Exception $e) {
         return $e;
     }
