@@ -28,3 +28,21 @@ header, footer {
 .validation {   
     background: #669933;
 }
+
+.profil {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 2px solid grey;
+    border-radius: 8px;
+  }
+  .profil > .centre {
+    text-align: center;
+  }
+  .profil > .cadre > h2 {
+    padding: 10px 0;
+    margin: 10px 0;
+    border: 2px solid grey;
+    border-left: none;
+    border-right: none;
+  }

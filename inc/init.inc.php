@@ -12,11 +12,11 @@ session_start();
 // print_r($_SERVER);
 define("RACINE_SITE", "http://" . $_SERVER['HTTP_HOST'] . "/");
 
-require('./inc/functions.inc.php');
+require('functions.inc.php');
 $contenu = '';
 // debug($mysqli, 0);
 // define("RACINE_SITE","http://localhost:4000/");
 // Déclarer une variable d’environnement
-putenv('NOM_VARIABLE=Le nom de ma variable d\'environnement avec <span style="font-weight:bold;">putenv(NOM_VARIABLE)</span>');
+// putenv('NOM_VARIABLE=Le nom de ma variable d\'environnement avec <span style="font-weight:bold;">putenv(NOM_VARIABLE)</span>');
 // // ou
-$_ENV['NOM_VARIABLE'] = 'Le nom de ma variable d\'environnement avec <span style="font-weight:bold;">$_ENV[NOM_VARIABLE]</span>';
+// $_ENV['NOM_VARIABLE'] = 'Le nom de ma variable d\'environnement avec <span style="font-weight:bold;">$_ENV[NOM_VARIABLE]</span>';

@@ -1,37 +1,42 @@
-<?php require_once("inc/init.inc.php");
+<?php require("./inc/init.inc.php"); ?>
+<?php
 //--------------------------------- TRAITEMENTS PHP ---------------------------------//
+if(isset($_GET['action']) && $_GET['action'] == "deconnexion") {
+    session_destroy();
+} 
+if(internauteEstConnecte()) {
+    header("location: profil.php");
+}
 if($_POST) {
-    // $contenu .=  "pseudo : " . $_POST['pseudo'] . "<br>mot_de_passe : " .  $_POST['mot_de_passe'] . "";
     $resultat = executeRequete("SELECT * FROM utilisateur WHERE pseudo='$_POST[pseudo]'");
     if($resultat->num_rows != 0) {
-        // $contenu .=  '<div style="background:green">pseudo connu!</div>';
-        $utilisateur = $resultat->fetch_assoc();
-        if($utilisateur['mot_de_passe'] == $_POST['mot_de_passe']) {
-            //$contenu .= '<div class="validation">mot_de_passe connu!</div>';
-            foreach($utilisateur as $indice => $element) {
+        $membre = $resultat->fetch_assoc();
+        if(password_verify($_POST['mot_de_passe'], $membre['mot_de_passe'])) {
+            foreach($membre as $indice => $element) {
                 if($indice != 'mot_de_passe') {
-                    $_SESSION['utilisateur'][$indice] = $element;
+                    $_SESSION['membre'][$indice] = $element;
                 }
-            } header("location:profil.php");
+            } header("location: profil.php"); // si tout est bon on redirige vers le profil
         } else {
-            $contenu .= '<div class="erreur">Erreur de mot_de_passe</div>';
-        }       
+            $contenu .= '<div class="erreur">Erreur de mot de passe</div>';
+        }
     } else {
         $contenu .= '<div class="erreur">Erreur de pseudo</div>';
     }
 }
 //--------------------------------- AFFICHAGE HTML ---------------------------------//
 ?>
-<?php require_once("inc/haut.inc.php"); ?>
- 
+<?php require("./inc/haut.inc.php"); ?>
+<?php echo $contenu ?>
+
 <form method="post" action="">
     <label for="pseudo">Pseudo</label><br>
-    <input type="text" id="pseudo" name="pseudo"><br> <br>
+    <input type="text" id="pseudo" name="pseudo"><br><br>
          
-    <label for="mdp">Mot de passe</label><br>
-    <input type="text" id="mot_de_passe" name="mot_de_passe"><br><br>
+    <label for="mot_de_passe" id="mot_de_passe" >Mot de passe</label><br>
+    <input type="password" name="mot_de_passe"><br><br>
  
     <button>Se connecter</button>
 </form>
- 
-<?php require_once("inc/bas.inc.php"); ?>
+
+<?php require("./inc/bas.inc.php"); ?>
