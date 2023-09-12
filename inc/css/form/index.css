@@ -5,3 +5,21 @@ button.inscription {
 textarea {
     resize: none;
 }
+
+table {
+    border-collapse: collapse;
+    min-width: 1280px;
+    width: 95%;
+}
+
+table tr td {
+    text-align: center;
+}
+
+td, th {
+    padding: 5px;
+}
+
+table tr, table tr td {
+    border: 2px solid grey;
+}
