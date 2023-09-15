@@ -47,9 +47,7 @@ if(!empty($_POST)) {
         $contenu .= '<div class="erreur">La suppression du produit : ' . $_GET['id_produit'] . ' est impossible => commande en cours ...</div>';
         $_GET['action'] = 'affichage';
     } else {
-    executeRequete("REPLACE INTO produit (id_produit, reference, categorie, titre, 
-    description, couleur, taille, public, photo, prix, stock) 
-    values ('$_POST[id_produit]','$_POST[reference]', '$_POST[categorie]', '$_POST[titre]', '$_POST[description]', '$_POST[couleur]', '$_POST[taille]', '$_POST[public]',  '$photo_bdd',  '$_POST[prix]',  '$_POST[stock]')");
+    executeRequete("REPLACE INTO produit (id_produit, reference, categorie, titre, description, couleur, taille, public, photo, prix, stock) values ('$_POST[id_produit]','$_POST[reference]', '$_POST[categorie]', '$_POST[titre]', '$_POST[description]', '$_POST[couleur]', '$_POST[taille]', '$_POST[public]',  '$photo_bdd',  '$_POST[prix]',  '$_POST[stock]')");
     $contenu .= '<div class="validation">Le produit a été ajouté</div>';
     }
 }
@@ -109,25 +107,25 @@ if (isset($_GET['action']) && ($_GET['action'] == "ajout" || $_GET['action'] == 
     if(isset($produit_actuel['reference'])) echo $produit_actuel['reference']; 
     echo '"><br><br>
  
-        <label for="categorie">categorie</label><br>
-        <input type="text" id="categorie" name="categorie" placeholder="la categorie de produit" value="'; 
-        if(isset($produit_actuel['categorie'])) echo $produit_actuel['categorie']; 
-        echo '" ><br><br>
+    <label for="categorie">categorie</label><br>
+    <input type="text" id="categorie" name="categorie" placeholder="la categorie de produit" value="'; 
+    if(isset($produit_actuel['categorie'])) echo $produit_actuel['categorie']; 
+    echo '" ><br><br>
  
-        <label for="titre">titre</label><br>
-        <input type="text" id="titre" name="titre" placeholder="le titre du produit" value="'; 
-        if(isset($produit_actuel['titre'])) echo $produit_actuel['titre']; 
-        echo '" > <br><br>
+    <label for="titre">titre</label><br>
+    <input type="text" id="titre" name="titre" placeholder="le titre du produit" value="'; 
+    if(isset($produit_actuel['titre'])) echo $produit_actuel['titre']; 
+    echo '" > <br><br>
  
-        <label for="description">description</label><br>
-        <textarea name="description" id="description" placeholder="la description du produit">'; 
-        if(isset($produit_actuel['description'])) echo $produit_actuel['description']; 
-        echo '</textarea><br><br>
+    <label for="description">description</label><br>
+    <textarea name="description" id="description" placeholder="la description du produit">'; 
+    if(isset($produit_actuel['description'])) echo $produit_actuel['description']; 
+    echo '</textarea><br><br>
          
-        <label for="couleur">couleur</label><br>
-        <input type="text" id="couleur" name="couleur" placeholder="la couleur du produit"  value="'; 
-        if(isset($produit_actuel['couleur'])) echo $produit_actuel['couleur']; 
-        echo '"> <br><br>
+    <label for="couleur">couleur</label><br>
+    <input type="text" id="couleur" name="couleur" placeholder="la couleur du produit"  value="'; 
+    if(isset($produit_actuel['couleur'])) echo $produit_actuel['couleur']; 
+    echo '"> <br><br>
 
     <label for="taille">Taille
     <select name="taille">

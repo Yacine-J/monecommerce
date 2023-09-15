@@ -1,0 +1,15 @@
+{
+  "name": "monecommerce",
+  "version": "1.0.0",
+  "description": "description",
+  "main": "index.php",
+  "scripts": {
+    "sass": "sass --watch ./inc/sass/main.scss:./public/css/style.css",
+    "sass-compressed": "sass --watch --style compressed ./inc/sass/main.scss:./public/css/style.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.67.0"
+  }
+}
